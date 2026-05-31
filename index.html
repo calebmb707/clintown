@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Clintown Crawford Barbershop — Le Havre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────── tokens ───────────────────────── */
+:root{
+  --bg:#0A0A0A;
+  --bg-2:#0d0d0f;
+  --panel:#141019;
+  --violet:#4B0082;
+  --violet-2:#6A0DAD;
+  --violet-soft:#2a0a47;
+  --gold:#C9A84C;
+  --gold-2:#E8C76A;
+  --white:#ffffff;
+  --muted:#a7a3b3;
+  --line:rgba(255,255,255,.08);
+  --line-gold:rgba(201,168,76,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px}html,body{background:var(--bg);color:var(--white);font-family:'DM Sans',system-ui,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{overflow-x:hidden;cursor:none}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:none;border:0;background:none;color:inherit}
+
+/* type */
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em;line-height:1.05}
+h1{font-size:clamp(2.8rem,7vw,5.5rem)}
+.hero-title{letter-spacing:.04em;line-height:1.0}
+h2{font-size:clamp(1.3rem,2.2vw,1.9rem)}
+h3{font-size:clamp(1rem,1.6vw,1.4rem)}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.script{font-family:'Tangerine',cursive;font-weight:700;color:var(--gold)}
+
+/* selection */
+::selection{background:var(--gold);color:#0a0a0a}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--violet-2),var(--violet));border-radius:10px;border:2px solid #0a0a0a}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* custom cursor */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:transform}
+.cursor-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(201,168,76,.8)}
+.cursor-ring{width:34px;height:34px;border:1px solid rgba(201,168,76,.5);border-radius:50%;transition:width .25s,height .25s,border-color .25s,background .25s}
+.cursor-ring.hover{width:54px;height:54px;border-color:var(--gold);background:rgba(201,168,76,.08)}
+@media (pointer:coarse){body{cursor:auto}.cursor-dot,.cursor-ring{display:none}}
+
+/* ───────────────────────── loader ───────────────────────── */
+#loader{position:fixed;inset:0;background:#6A0DAD;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s ease,visibility .8s ease}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{display:flex;align-items:center;justify-content:center;animation:loaderPulse 2.5s ease-in-out infinite}
+.loader-logo-img{width:clamp(220px,45vw,380px);height:auto;object-fit:contain;filter:drop-shadow(0 0 30px rgba(201,168,76,.5)) drop-shadow(0 0 60px rgba(106,13,173,.4));animation:logoReveal .8s ease forwards;opacity:0}
+.loader-line{width:0;height:1px;background:linear-gradient(90deg,transparent,#C9A84C,transparent);margin-top:2.5rem;animation:loaderLine 2s ease forwards .6s}
+@keyframes loaderLine{to{width:280px}}
+@keyframes logoReveal{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes loaderPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+
+/* ───────────────────────── nav ───────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.7rem 3rem;background:linear-gradient(180deg,rgba(10,10,10,.85),rgba(10,10,10,.35) 70%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s, padding .3s, border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(8,6,12,.92);padding:12px clamp(20px,4vw,56px);border-bottom-color:var(--line)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:40px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));transition:transform .3s ease}
+.nav-logo-img:hover{transform:scale(1.05)}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:#e9e7ef;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .3s}
+.nav-links a:hover::after{right:0}
+.nav-cta{padding:8px 18px;border:none;background:rgba(201,168,76,.1);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;transition:.25s;border-radius:8px}
+.nav-cta:hover{background:rgba(201,168,76,.22);color:var(--gold)}
+/* HAMBURGER */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:4px;z-index:1001}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s ease;transform-origin:center}
+.nav-hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MENU MOBILE */
+.mobile-menu{position:fixed;top:0;right:0;width:100%;height:100vh;background:rgba(7,7,7,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu-inner{display:flex;flex-direction:column;align-items:center;gap:2.5rem;text-align:center}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.mobile-nav-link{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,10vw,3.5rem);color:rgba(255,255,255,.85);text-decoration:none;letter-spacing:.08em;display:block;padding:.3rem 0;transition:color .3s ease,transform .3s ease;position:relative}
+.mobile-nav-link::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%) scaleX(0);width:30px;height:1px;background:var(--gold);transition:transform .3s ease}
+.mobile-nav-link:hover{color:var(--gold);transform:translateX(8px)}
+.mobile-nav-link:hover::after{transform:translateX(-50%) scaleX(1)}
+.mobile-menu-cta{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.9rem 2rem;text-decoration:none;transition:all .3s ease}
+.mobile-menu-cta:hover{background:var(--gold);color:#0a0a0a}
+.mobile-menu-socials{display:flex;gap:1.2rem}
+
+@media (max-width:900px){
+  .nav-hamburger{display:flex}
+  .nav-links,.nav-cta{display:none}
+}
+
+/* ───────────────────────── hero ───────────────────────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:80px clamp(20px,4vw,56px) 180px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.6)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(91,14,166,.55) 0%,transparent 50%,rgba(7,7,7,.75) 100%),linear-gradient(180deg,rgba(7,7,7,.2) 0%,rgba(7,7,7,.75) 100%)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%;max-width:1380px;margin:0 auto}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:20px}}
+.hero-copy{max-width:620px}
+.hero-loc{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-gold);padding:8px 14px;border-radius:999px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);background:rgba(75,0,130,.15);backdrop-filter:blur(6px);margin-bottom:28px}
+.hero-loc::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.18)}
+.hero h1{margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero-sub{font-size:.88rem;color:#d6d3df;max-width:480px;margin-bottom:28px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn-gold{display:inline-flex;align-items:center;gap:12px;position:relative;overflow:hidden;padding:13px 26px;border-radius:12px;background:linear-gradient(160deg,#1c0f2e 0%,#0d0d0d 100%);color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(201,168,76,.28);box-shadow:0 0 20px rgba(201,168,76,.12),inset 0 1px 0 rgba(255,255,255,.08);transition:all .3s ease}
+.btn-gold::before{content:"";position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(201,168,76,.32) 0%,transparent 70%);border-radius:50%;pointer-events:none;transition:all .3s}
+.btn-gold::after{content:"";position:absolute;bottom:-10px;left:-10px;width:60px;height:60px;background:radial-gradient(circle,rgba(106,13,173,.6) 0%,rgba(75,0,130,.3) 40%,transparent 70%);box-shadow:-2px 4px 20px rgba(106,13,173,.35);border-radius:50%;pointer-events:none;transition:all .3s}
+.btn-gold:hover{transform:scale(1.03);box-shadow:0 0 35px rgba(201,168,76,.28),0 6px 22px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08);border-color:rgba(201,168,76,.5)}
+.btn-gold:hover::before{background:radial-gradient(circle,rgba(201,168,76,.48) 0%,transparent 70%)}
+.btn-gold:hover::after{width:90px;box-shadow:-3px 4px 30px rgba(106,13,173,.55)}
+.btn-gold svg{transition:transform .3s;position:relative;z-index:1}
+.btn-gold:hover svg{transform:translateX(4px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:12px;padding:13px 24px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75);font-weight:500;transition:all .25s}
+.btn-ghost:hover{border-color:rgba(201,168,76,.4);color:var(--gold);background:rgba(201,168,76,.06)}
+
+/* hero chair photo */
+.hero-visual{position:absolute;right:0%;top:50%;transform:translateY(-50%);width:clamp(252px,32vw,432px);display:flex;align-items:center;justify-content:center;opacity:0;animation:fadeIn 1.2s ease forwards 1s;z-index:2}
+.hero-chair-wrap{position:relative;display:flex;align-items:center;justify-content:center;animation:chairLevitate 4s ease-in-out infinite}
+.hero-chair-img{width:100%;max-width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 30px 50px rgba(91,14,166,.6)) drop-shadow(0 0 40px rgba(201,168,76,.15))}
+.hero-chair-glow{position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);width:60%;height:25px;background:radial-gradient(ellipse,rgba(91,14,166,.7) 0%,transparent 70%);border-radius:50%;animation:glowSync 4s ease-in-out infinite}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes chairLevitate{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes glowSync{0%,100%{transform:translateX(-50%) scaleX(1);opacity:.8}50%{transform:translateX(-50%) scaleX(.7);opacity:.4}}
+/* hero mobile géré dans le bloc complet ci-dessous */
+
+.hero-marquee{position:absolute;left:0;right:0;bottom:0;z-index:2;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.marquee-track{display:flex;gap:48px;padding:10px 0;white-space:nowrap;animation:marquee 35s linear infinite;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:600;font-size:.88rem;color:#cfc8db}
+.marquee-track span{display:inline-flex;align-items:center;gap:48px}
+.marquee-track span::after{content:"★";color:var(--gold);margin-left:48px;font-style:normal;text-shadow:0 0 6px rgba(201,168,76,.9),0 0 14px rgba(201,168,76,.5),0 0 28px rgba(201,168,76,.25)}
+@keyframes marquee{from{transform:none}to{transform:translateX(-50%)}}
+
+/* ───────────────────────── hero values bar ───────────────────────── */
+.hero-values-bar{position:absolute;bottom:3rem;left:0;right:0;display:flex;align-items:flex-start;justify-content:center;gap:4rem;padding:0 4rem;z-index:4;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border:none}
+.hero-value-item{display:flex;align-items:flex-start;gap:.8rem;max-width:220px}
+.hero-value-item i{font-size:1.4rem;color:var(--gold);flex-shrink:0;margin-top:2px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.9))}
+.hero-value-title{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:600;color:#fff;margin-bottom:.3rem;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 1px 3px rgba(0,0,0,1),0 0 20px rgba(0,0,0,.9),0 2px 12px rgba(0,0,0,.8)}
+.hero-value-text{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.5;font-weight:300;text-shadow:0 1px 4px rgba(0,0,0,1),0 0 15px rgba(0,0,0,.9)}
+.hero-value-divider{display:none}
+@media(max-width:768px){
+  /* ── HERO GLOBAL ── */
+  .hero{min-height:100svh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(30,0,60,.70) 0%,rgba(20,0,40,.55) 45%,rgba(58,0,112,.80) 70%,rgba(7,7,7,.95) 100%)!important}
+  /* ── BLOC 1 : TEXTE ── */
+  .hero-copy{position:relative;z-index:3;padding:5.5rem 1.5rem 2rem;width:100%}
+  .hero h1{font-size:clamp(2rem,9vw,2.8rem)!important;margin-bottom:.8rem}
+  .hero-sub{font-size:.82rem!important;line-height:1.6;margin-bottom:1.5rem;max-width:100%}
+  .hero-actions{flex-direction:column;gap:.7rem}
+  .btn-gold,.btn-ghost,.btn-primary{width:100%;text-align:center;padding:.9rem 1rem!important;font-size:.72rem!important;white-space:nowrap}
+  /* ── BLOC 2 : CHAISE ── */
+  .hero-visual{position:relative!important;display:flex!important;width:100%!important;height:320px!important;align-items:center!important;justify-content:center!important;background:none!important;top:auto!important;right:auto!important;transform:none!important;opacity:1!important;animation:none!important;z-index:3!important;margin-top:-1rem}
+  .hero-chair-wrap{animation:chairLevitate 4s ease-in-out infinite;display:flex;align-items:center;justify-content:center;width:100%}
+  .hero-chair-img{width:75%!important;max-width:280px!important;height:auto!important;filter:drop-shadow(0 0 40px rgba(91,14,166,.7)) drop-shadow(0 20px 30px rgba(0,0,0,.9)) brightness(1.05)!important}
+  .hero-chair-glow{width:120px;height:18px;bottom:-10px}
+  /* ── BLOC 3 : VALEURS ── */
+  .hero-values-bar{position:relative!important;bottom:auto!important;display:flex!important;flex-direction:row!important;justify-content:space-around!important;align-items:center!important;gap:0!important;padding:1rem .5rem!important;background:rgba(255,255,255,.06)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border:1px solid rgba(255,255,255,.08)!important;border-top:1px solid rgba(201,168,76,.2)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)!important;margin-bottom:0!important;z-index:4!important;width:100%!important}
+  .hero-value-item{flex-direction:column!important;align-items:center!important;text-align:center!important;gap:.25rem!important;padding:0 .4rem!important;max-width:30%!important}
+  .hero-value-item i{font-size:1.1rem!important}
+  .hero-value-title{font-size:.55rem!important;letter-spacing:.06em!important;line-height:1.2!important}
+  .hero-value-text{display:none!important}
+  .hero-value-divider{display:block!important;width:1px!important;height:30px!important;background:rgba(201,168,76,.2)!important;flex-shrink:0!important}
+  .hero-marquee,[class*="ticker"],[class*="marquee"]{margin-top:0!important}
+  .hero-scroll{display:none}
+}
+
+/* ───────────────────────── ambiance ───────────────────────── */
+#ambiance{background:#0d0d0f;padding:0;position:relative;overflow:hidden}
+.ambiance-scissors-right{position:absolute;right:-2rem;top:30%;font-size:10rem;color:var(--gold);opacity:.04;transform:rotate(45deg);pointer-events:none}
+.ambiance-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;padding:7rem 5rem;max-width:1200px;margin:0 auto}
+.ambiance-media{position:relative;height:520px}
+.ambiance-img-main{position:relative;width:100%;height:100%}
+.ambiance-photo{position:absolute;object-fit:cover;border-radius:14px}
+.ambiance-photo-back{width:75%;height:90%;top:0;left:0;filter:grayscale(20%) brightness(.85);z-index:1;background:#1a1a2e}
+.ambiance-photo-front{width:55%;height:65%;bottom:0;right:0;border:3px solid #0d0d0f;z-index:2;filter:grayscale(10%);background:#1a1a2e}
+.ambiance-grid-deco{position:absolute;top:1rem;right:1rem;width:80px;height:80px;background-image:radial-gradient(circle,rgba(201,168,76,.4) 1px,transparent 1px);background-size:10px 10px;z-index:0}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;letter-spacing:.03em;line-height:1.1;margin-bottom:1.5rem}
+.section-body{color:#bdb7c9;font-size:.9rem;margin-bottom:1rem;max-width:480px;line-height:1.7}
+.gold{color:var(--gold)}
+.ambiance-text .eyebrow{display:block;margin-bottom:1.2rem}
+.ambiance-features{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.06)}
+.ambiance-feature{padding:2rem 1.5rem;border-right:1px solid rgba(255,255,255,.06);transition:opacity .3s ease}
+.ambiance-feature:last-child{border-right:none}
+.ambiance-feature:hover{opacity:.8}
+.ambiance-feature i{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.8rem}
+.ambiance-feature-title{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:600;color:var(--white);margin-bottom:.5rem;letter-spacing:.1em;line-height:1.3}
+.ambiance-feature-text{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.5;font-weight:300}
+.ambiance-feature-sub{font-size:.67rem;color:rgba(255,255,255,.25);line-height:1.4;font-weight:300;margin-top:.3rem;font-style:italic}
+@media(max-width:900px){.ambiance-inner{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}.ambiance-media{height:320px}.ambiance-features{grid-template-columns:1fr 1fr}.ambiance-feature{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}}
+
+/* ───────────────────────── shared section-head (barbers, galerie) ───────────────────────── */
+.section-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.section-head .eyebrow{display:block;margin-bottom:14px}
+.section-head h2{margin-bottom:14px}
+.section-head h2 em{font-style:italic;color:var(--gold);font-weight:500}
+.section-head p{color:var(--muted)}
+
+/* ───────────────────────── tarifs ───────────────────────── */
+#tarifs{padding:8rem 4rem;background:#0d0d0f;position:relative;overflow:hidden}
+#tarifs::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(91,14,166,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(201,168,76,.04) 0%,transparent 50%);pointer-events:none}
+.tarifs-header{text-align:center;margin-bottom:5rem}
+.tarifs-header .eyebrow{display:block;margin-bottom:1rem}
+.tarifs-layout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;align-items:start;max-width:1300px;margin:0 auto}
+.tarifs-group{margin-bottom:2.5rem}
+.tarifs-group-title{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(201,168,76,.15)}
+.tarifs-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.tarifs-list li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.82rem;color:rgba(255,255,255,.65);padding-bottom:.65rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.tarifs-list li:last-child{border-bottom:none}
+.tarif-price{color:var(--white);font-weight:500;white-space:nowrap;flex-shrink:0;font-size:.8rem}
+.tarif-rdv{color:var(--gold);font-size:.72rem;font-weight:400}
+.tarifs-note{font-size:.68rem;color:rgba(255,255,255,.2);font-style:italic;line-height:1.5;margin-top:-1rem}
+.tarifs-center{display:flex;align-items:center;justify-content:center}
+.tarifs-blaireau-wrap{position:relative;display:flex;flex-direction:column;align-items:center;width:100%}
+.tarifs-blaireau-img{width:80%;max-width:250px;height:auto;object-fit:contain;animation:blaireauFloat 4s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(91,14,166,.5)) drop-shadow(0 0 30px rgba(201,168,76,.15))}
+.tarifs-blaireau-glow{width:55%;max-width:200px;height:24px;background:radial-gradient(ellipse,rgba(91,14,166,.6) 0%,transparent 70%);border-radius:50%;margin-top:.8rem;animation:shadowSync 4s ease-in-out infinite}
+.tarifs-cta{margin-top:1rem;display:flex;flex-direction:column;gap:.8rem}
+.tarifs-cta-note{font-size:.7rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase}
+.tarifs-rating{display:flex;align-items:center;gap:.6rem;margin-top:.4rem}
+.tarifs-stars{color:var(--gold);font-size:.75rem;letter-spacing:.1em}
+.tarifs-rating-text{font-size:.7rem;color:rgba(255,255,255,.35)}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#0a0a0a;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;transition:all .25s;box-shadow:0 4px 20px rgba(201,168,76,.35)}
+.btn-primary:hover{transform:scale(1.03);box-shadow:0 6px 28px rgba(201,168,76,.5)}
+@keyframes blaireauFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes shadowSync{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(.65);opacity:.4}}
+@media(max-width:900px){#tarifs{padding:4rem 1.5rem}.tarifs-layout{grid-template-columns:1fr;gap:2rem}.tarifs-center{order:-1}.tarifs-blaireau-img{width:120px}}
+
+/* floating brush decoration (used in ambiance section) */
+@keyframes levitate{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-22px) rotate(-2deg)}}
+
+/* ───────────────────────── barbiers ───────────────────────── */
+#barbiers{padding:8rem 0;background:var(--bg);position:relative;overflow:hidden}
+#barbiers::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(91,14,166,.12) 0%,transparent 65%);pointer-events:none}
+#barbiers .section-head{padding:0 4rem;margin-bottom:4rem;text-align:center;max-width:none}
+.barbers-carousel-wrapper{display:flex;align-items:center;gap:1.5rem;padding:0 2.5rem}
+.barbers-3d-stage{position:relative;flex:1;height:520px;perspective:1200px;display:flex;align-items:center;justify-content:center}
+.barber-card{position:absolute;width:260px;height:400px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 50px rgba(0,0,0,.6);transition:transform .5s cubic-bezier(.25,.46,.45,.94),opacity .5s ease,filter .5s ease,border-color .5s ease;cursor:pointer}
+.barber-card-img{width:100%;height:100%;object-fit:cover;display:block}
+.barber-card-body{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1rem 1rem;background:linear-gradient(to top,rgba(7,7,7,.96) 0%,rgba(0,0,0,.65) 55%,transparent 100%);text-align:center}
+.barber-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--white);margin-bottom:.25rem;letter-spacing:.05em}
+.barber-role{font-size:.62rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.9rem}
+.barber-rdv-btn{display:inline-block;padding:.45rem 1.1rem;border:1px solid rgba(201,168,76,.6);color:var(--gold);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;transition:all .3s ease;border-radius:2px}
+.barber-rdv-btn:hover{background:var(--gold);color:#0a0a0a;border-color:var(--gold)}
+.carousel-btn{background:rgba(255,255,255,.05);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);color:var(--gold);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;flex-shrink:0;transition:all .3s ease;font-size:1rem}
+.carousel-btn:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.5)}
+.carousel-btn:disabled{opacity:.2;cursor:not-allowed}
+.carousel-dots{display:flex;justify-content:center;gap:.4rem;margin-top:2rem}
+.carousel-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.15);border:none;cursor:none;transition:all .35s ease;padding:0}
+.carousel-dot.active{background:var(--gold);width:18px;border-radius:3px}
+@media(max-width:900px){
+  #barbiers{padding:4rem 0}
+  #barbiers .section-head{padding:0 1.5rem}
+  .barbers-carousel-wrapper{padding:0 1rem;gap:.75rem}
+  .barbers-3d-stage{height:360px}
+  .barber-card{width:170px;height:270px;border-radius:16px}
+  .barber-name{font-size:.72rem}
+  .barber-role{font-size:.55rem;margin-bottom:.6rem}
+  .barber-rdv-btn{font-size:.54rem;padding:.35rem .8rem}
+  .carousel-btn{width:36px;height:36px;font-size:.85rem}
+}
+@media(max-width:480px){
+  .barbers-3d-stage{height:300px}
+  .barber-card{width:145px;height:230px}
+}
+
+/* ───────────────────────── galerie ───────────────────────── */
+#galerie{padding:8rem 4rem;background:#0d0d0f;position:relative}
+.galerie-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:320px 320px;gap:6px;max-width:1200px;margin:0 auto 3rem}
+.galerie-item-tall{grid-row:span 2}
+.galerie-item{position:relative;overflow:hidden;cursor:none;background:var(--bg);border-radius:12px}
+.galerie-img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .7s ease;filter:brightness(.88) saturate(.95);border-radius:12px}
+.galerie-item:hover .galerie-img{transform:scale(1.06);filter:brightness(.6) saturate(1.1)}
+.galerie-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(91,14,166,.7) 100%);display:flex;align-items:flex-end;padding:1.5rem;opacity:0;transition:opacity .4s ease}
+.galerie-item:hover .galerie-overlay{opacity:1}
+.galerie-overlay-label{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--white)}
+.galerie-cta{display:flex;flex-direction:column;align-items:center;gap:1.2rem;margin-top:3rem;text-align:center}
+.galerie-cta-text{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+@media(max-width:900px){#galerie{padding:4rem 1.5rem}.galerie-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.galerie-item-tall{grid-row:span 1;grid-column:span 2}}
+@media(max-width:480px){.galerie-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,220px)}.galerie-item-tall{grid-column:span 1}}
+
+/* ───────────────────────── contact ───────────────────────── */
+.contact{padding:120px clamp(20px,4vw,56px) 80px;background:linear-gradient(180deg,#0d0d0d 0%,#100918 100%);position:relative}
+.contact-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:36px}}
+.contact h2{margin-bottom:24px}
+.contact h2 em{font-style:italic;color:var(--gold);font-weight:500}
+.contact-info{display:flex;flex-direction:column;gap:28px;margin-top:30px}
+.cinfo{display:flex;gap:18px;align-items:flex-start}
+.cinfo .ic{width:46px;height:46px;border:1px solid var(--line-gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);flex-shrink:0}
+.cinfo .lbl{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#8b8595;margin-bottom:6px}
+.cinfo .val{font-size:1.02rem;color:#ece9f4}
+.cinfo .val a{display:block}
+.socials{display:flex;gap:12px;margin-top:14px}
+.socials a{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:#cfc8db;transition:.25s}
+.socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.map{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:#0a0a0a}
+.map-ph{position:absolute;inset:0;background:linear-gradient(135deg,#1a0d2e 0%,#0a0414 100%);display:grid;place-items:center;color:#3a3247;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}
+.map svg.streets{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.map-pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);z-index:2;color:var(--gold);filter:drop-shadow(0 4px 12px rgba(0,0,0,.6))}
+.map-pin::after{content:"";position:absolute;left:50%;bottom:-10px;width:20px;height:20px;border-radius:50%;background:rgba(201,168,76,.3);transform:translateX(-50%);animation:ping 2s ease-out infinite}
+@keyframes ping{0%{transform:translateX(-50%) scale(.6);opacity:.8}100%{transform:translateX(-50%) scale(2.5);opacity:0}}
+.map-overlay{position:absolute;left:16px;bottom:16px;right:16px;padding:14px 18px;background:rgba(8,4,16,.85);backdrop-filter:blur(8px);border:1px solid var(--line-gold);border-radius:4px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.map-overlay .addr{font-size:.82rem;color:#ece9f4;letter-spacing:.04em}
+.map-overlay a{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap}
+
+.contact-phone-link{color:var(--gold);text-decoration:none;font-weight:500;transition:opacity .3s ease}
+.contact-phone-link:hover{opacity:.7}
+.map-container{width:100%;height:350px;overflow:hidden;border:1px solid rgba(201,168,76,.1);border-radius:12px;filter:grayscale(20%) contrast(1.05);transition:filter .4s ease}
+.map-container:hover{filter:grayscale(0%) contrast(1)}
+
+/* footer */
+.footer{padding:40px clamp(20px,4vw,56px) 30px;border-top:1px solid var(--line);background:#070707}
+.footer-row{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:.78rem;color:#6b6577;letter-spacing:.08em}
+.footer-row a{color:#8b8595}
+.footer-row a:hover{color:var(--gold)}
+.footer-credit{font-size:.65rem;color:rgba(255,255,255,.12);text-align:center;margin-top:.75rem}
+.footer-credit-link{color:rgba(201,168,76,.4);text-decoration:none;transition:color .3s ease}
+.footer-credit-link:hover{color:var(--gold)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d2{transition-delay:.12s}
+.reveal.d3{transition-delay:.24s}
+
+/* utilities */
+.divider{display:flex;align-items:center;gap:14px;color:var(--gold);font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;justify-content:center;margin-bottom:14px}
+.divider::before,.divider::after{content:"";height:1px;width:40px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+/* ── SHUTTER TEXT EFFECT ── */
+.shutter-title{display:block}
+.shutter-char{display:inline-block;position:relative;overflow:hidden;vertical-align:bottom}
+.shutter-main{display:block;opacity:0;transform:translateY(8px);transition:opacity .5s ease calc(var(--delay)*.045s + .1s),transform .5s ease calc(var(--delay)*.045s + .1s)}
+.shutter-slice-top,.shutter-slice-mid,.shutter-slice-bot{position:absolute;top:0;left:0;display:block;width:100%;height:100%;opacity:0;font:inherit;color:var(--gold);pointer-events:none}
+.shutter-slice-top{transform:translateX(-110%);transition:transform .55s cubic-bezier(.77,0,.175,1) calc(var(--delay)*.045s),opacity 0s linear calc(var(--delay)*.045s)}
+.shutter-slice-mid{transform:translateX(110%);color:rgba(255,255,255,.9);transition:transform .55s cubic-bezier(.77,0,.175,1) calc(var(--delay)*.045s + .05s),opacity 0s linear calc(var(--delay)*.045s + .05s)}
+.shutter-slice-bot{transform:translateX(-110%);transition:transform .55s cubic-bezier(.77,0,.175,1) calc(var(--delay)*.045s + .1s),opacity 0s linear calc(var(--delay)*.045s + .1s)}
+.shutter-animate .shutter-main{opacity:1;transform:translateY(0)}
+.shutter-animate .shutter-slice-top,.shutter-animate .shutter-slice-mid,.shutter-animate .shutter-slice-bot{opacity:1;transform:translateX(0)}
+.shutter-animate .shutter-slice-top{animation:sliceExit .3s ease forwards calc(var(--delay)*.045s + .45s)}
+.shutter-animate .shutter-slice-mid{animation:sliceExit .3s ease forwards calc(var(--delay)*.045s + .5s)}
+.shutter-animate .shutter-slice-bot{animation:sliceExit .3s ease forwards calc(var(--delay)*.045s + .55s)}
+@keyframes sliceExit{to{opacity:0;transform:translateX(110%)}}
+</style>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+<!-- cursor -->
+<div class="cursor-ring" id="cRing"></div>
+<div class="cursor-dot" id="cDot"></div>
+
+<!-- ─────────── LOADER ─────────── -->
+<div id="loader">
+  <div class="loader-logo">
+    <img src="assets/logo sans arrière plan.png" alt="ClinTown Barbershop" class="loader-logo-img" />
+  </div>
+  <div class="loader-line"></div>
+</div>
+
+<!-- ─────────── NAV ─────────── -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo">
+    <img src="assets/logo sans arrière plan.png" alt="ClinTown Barbershop" class="nav-logo-img"/>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">À propos</a>
+    <a href="#tarifs">Services</a>
+    <a href="#barbiers">Nos barbiers</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.planity.com/clintown-lh-76600-le-havre" class="nav-cta" target="_blank" rel="noopener">Réserver</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <ul class="mobile-nav-links">
+      <li><a href="#about" class="mobile-nav-link">À Propos</a></li>
+      <li><a href="#tarifs" class="mobile-nav-link">Services</a></li>
+      <li><a href="#barbiers" class="mobile-nav-link">Nos Barbiers</a></li>
+      <li><a href="#galerie" class="mobile-nav-link">Galerie</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="mobile-menu-cta">Réserver sur Planity →</a>
+    <div class="mobile-menu-socials">
+      <a href="https://www.instagram.com/clintownlh?igsh=MTJzcm9zYTFpejB6Zw==" target="_blank" rel="noopener" class="social-link"><i class="ph-duotone ph-instagram-logo"></i></a>
+      <a href="https://www.tiktok.com/@clintownbarbe?_r=1&amp;_t=ZN-96DdUhFMR3" target="_blank" rel="noopener" class="social-link"><i class="ph-duotone ph-tiktok-logo"></i></a>
+      <a href="https://snapchat.com/t/vvCGwKhi" target="_blank" rel="noopener" class="social-link"><i class="ph-duotone ph-snapchat-logo"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── HERO ─────────── -->
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="assets/arrière plan hero.png" alt="" /></div>
+
+  <div class="hero-grid">
+    <div class="hero-copy reveal">
+
+      <h1 class="hero-title shutter-title">Crée ton<br/>style.</h1>
+      <p class="hero-sub">Un vrai barbershop à la new-yorkaise. L'univers ClinTown, c'est le States : culture, précision et style à chaque coupe.</p>
+      <div class="hero-actions">
+        <a href="https://www.planity.com/clintown-lh-76600-le-havre" class="btn-gold" target="_blank" rel="noopener">
+          Prendre rendez-vous
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#tarifs" class="btn-ghost">Voir nos services</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-chair-wrap">
+        <img src="assets/barber_chair_mobile.png" alt="Fauteuil barbier ClinTown" class="hero-chair-img"/>
+        <div class="hero-chair-glow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-values-bar">
+    <div class="hero-value-item">
+      <i class="ph-duotone ph-timer"></i>
+      <div>
+        <div class="hero-value-title">Rapidité</div>
+        <div class="hero-value-text">Votre temps est précieux, nous le respectons</div>
+      </div>
+    </div>
+    <div class="hero-value-divider"></div>
+    <div class="hero-value-item">
+      <i class="ph-duotone ph-crosshair"></i>
+      <div>
+        <div class="hero-value-title">Précision</div>
+        <div class="hero-value-text">Chaque coupe est un chef-d'œuvre</div>
+      </div>
+    </div>
+    <div class="hero-value-divider"></div>
+    <div class="hero-value-item">
+      <i class="ph-duotone ph-medal"></i>
+      <div>
+        <div class="hero-value-title">Excellence</div>
+        <div class="hero-value-text">Un service premium à chaque visite</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-marquee">
+    <div class="marquee-track">
+      <span>Coupes signature</span><span>Dégradés américains</span><span>Soin de la barbe</span><span>Le Havre · Depuis 2017</span><span>Culture barber</span>
+      <span>Coupes signature</span><span>Dégradés américains</span><span>Soin de la barbe</span><span>Le Havre · Depuis 2017</span><span>Culture barber</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────── AMBIANCE ─────────── -->
+<section id="ambiance">
+
+  <div class="ambiance-scissors-right">✂</div>
+
+  <div class="ambiance-inner">
+
+    <!-- COLONNE GAUCHE : images -->
+    <div class="ambiance-media">
+      <div class="ambiance-img-main">
+        <img
+          src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Homme confiant après sa coupe"
+          class="ambiance-photo ambiance-photo-back"
+          crossorigin="anonymous"
+        />
+        <img
+          src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="Style barbershop"
+          class="ambiance-photo ambiance-photo-front"
+          crossorigin="anonymous"
+        />
+        <div class="ambiance-grid-deco"></div>
+      </div>
+    </div>
+
+    <!-- COLONNE DROITE : texte -->
+    <div class="ambiance-text reveal">
+      <span class="eyebrow">Le Salon</span>
+      <h2 class="section-title shutter-title">
+        Prends soin de toi.<br>
+        <span class="gold">C'est un état d'esprit.</span>
+      </h2>
+      <p class="section-body">
+        Prendre soin de soi, c'est un signe de confiance et de respect envers toi-même. Les hommes qui s'entretiennent dégagent une assurance naturelle qui fait la différence, au boulot, dans la rue, partout.
+      </p>
+      <p class="section-body" style="margin-top:-.5rem">
+        Viens chez ClinTown et repars avec la coupe qui te correspond vraiment.
+      </p>
+      <a href="https://www.planity.com/clintown-lh-76600-le-havre" class="btn-gold" target="_blank" rel="noopener">
+        Prendre rendez-vous
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- BANDE DU BAS : 4 points forts -->
+  <div class="ambiance-features">
+    <div class="ambiance-feature reveal">
+      <i class="ph-duotone ph-seal-check"></i>
+      <div class="ambiance-feature-title">Maîtres expérimentés</div>
+      <div class="ambiance-feature-text">Les meilleurs professionnels à votre service</div>
+      <div class="ambiance-feature-sub">Années de pratique, résultats garantis</div>
+    </div>
+    <div class="ambiance-feature reveal d2">
+      <i class="ph-duotone ph-music-notes"></i>
+      <div class="ambiance-feature-title">Ambiance agréable</div>
+      <div class="ambiance-feature-text">Une atmosphère qui vous fait sentir bien</div>
+      <div class="ambiance-feature-sub">Musique, détente et bonne humeur assurées</div>
+    </div>
+    <div class="ambiance-feature reveal d3">
+      <i class="ph-duotone ph-trophy"></i>
+      <div class="ambiance-feature-title">Culture States</div>
+      <div class="ambiance-feature-text">L'univers basketball &amp; barbershop américain</div>
+      <div class="ambiance-feature-sub">Jerseys, sneakers et vibes New-York au mur</div>
+    </div>
+    <div class="ambiance-feature reveal d4">
+      <i class="ph-duotone ph-wine"></i>
+      <div class="ambiance-feature-title">Boissons offertes</div>
+      <div class="ambiance-feature-text">Pour que vous vous sentiez comme chez vous</div>
+      <div class="ambiance-feature-sub">Café, eau, jus — offert à chaque visite</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ─────────── TARIFS ─────────── -->
+<section id="tarifs" class="services-anchor">
+
+  <div class="tarifs-header reveal">
+    <span class="eyebrow">Services &amp; Tarifs</span>
+    <h2 class="section-title shutter-title">Ce que nous <span class="gold">faisons</span></h2>
+  </div>
+
+  <div class="tarifs-layout">
+
+    <!-- COLONNE GAUCHE -->
+    <div class="tarifs-col tarifs-col-left reveal">
+      <div class="tarifs-group">
+        <h3 class="tarifs-group-title">Coupe</h3>
+        <ul class="tarifs-list">
+          <li><span>Coupe simple</span><span class="tarif-price">Sans RDV 15€ <span class="tarif-rdv">/ Avec RDV 25€</span></span></li>
+          <li><span>Coupe dégradée</span><span class="tarif-price">Sans RDV 15€ <span class="tarif-rdv">/ Avec RDV 25€</span></span></li>
+          <li><span>Contour</span><span class="tarif-price">Sans RDV 10€ <span class="tarif-rdv">/ Avec RDV 20€</span></span></li>
+          <li><span>Coupe + Barbe</span><span class="tarif-price">Sans RDV 20€ <span class="tarif-rdv">/ Avec RDV 35€</span></span></li>
+          <li><span>Contour + Barbe</span><span class="tarif-price">Sans RDV 10€ <span class="tarif-rdv">/ Avec RDV 25€</span></span></li>
+          <li><span>Barbe seule</span><span class="tarif-price">Sans RDV 10€</span></li>
+        </ul>
+      </div>
+      <div class="tarifs-group">
+        <h3 class="tarifs-group-title">Spécial</h3>
+        <ul class="tarifs-list">
+          <li><span>Wave + Coupe</span><span class="tarif-price">25€</span></li>
+          <li><span>Défrisage + Coupe</span><span class="tarif-price">25€</span></li>
+          <li><span>Motif / Tribal</span><span class="tarif-price">Sur devis</span></li>
+        </ul>
+      </div>
+      <p class="tarifs-note">* Selon la teinte, augmentation par palier de 10€</p>
+    </div>
+
+    <!-- CENTRE : blaireau -->
+    <div class="tarifs-center">
+      <div class="tarifs-blaireau-wrap">
+        <img src="assets/blaireau.png" alt="Blaireau de rasage ClinTown" class="tarifs-blaireau-img" />
+        <div class="tarifs-blaireau-glow"></div>
+      </div>
+    </div>
+
+    <!-- COLONNE DROITE -->
+    <div class="tarifs-col tarifs-col-right reveal d2">
+      <div class="tarifs-group">
+        <h3 class="tarifs-group-title">Décoloration</h3>
+        <ul class="tarifs-list">
+          <li><span>Demie-tête</span><span class="tarif-price">35€</span></li>
+          <li><span>Tête entière</span><span class="tarif-price">50€</span></li>
+          <li><span>Motif + Coupe</span><span class="tarif-price">60€</span></li>
+          <li><span>Déco + Coloration motif</span><span class="tarif-price">Sur devis</span></li>
+        </ul>
+      </div>
+      <div class="tarifs-group">
+        <h3 class="tarifs-group-title">Tresses &amp; Coiffage</h3>
+        <ul class="tarifs-list">
+          <li><span>Tresse collée simple</span><span class="tarif-price">dès 30€</span></li>
+          <li><span>Tresse + design</span><span class="tarif-price">dès 35€</span></li>
+          <li><span>Vanille / Barrel twist</span><span class="tarif-price">dès 50€</span></li>
+        </ul>
+      </div>
+      <div class="tarifs-cta">
+        <p class="tarifs-cta-note">Créneau garanti · Zéro attente</p>
+        <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="btn-primary">
+          Réserver sur Planity →
+        </a>
+        <div class="tarifs-rating">
+          <span class="tarifs-stars">★★★★★</span>
+          <span class="tarifs-rating-text">4.7/5 · 81 avis Planity</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ─────────── BARBERS ─────────── -->
+<section id="barbiers">
+
+  <div class="section-head reveal">
+    <span class="eyebrow">L'Équipe</span>
+    <h2 class="section-title shutter-title">Nos <span class="gold">Barbiers</span></h2>
+  </div>
+
+  <div class="barbers-carousel-wrapper">
+
+    <button class="carousel-btn carousel-btn-prev" aria-label="Précédent">
+      <i class="ph-duotone ph-caret-left"></i>
+    </button>
+
+    <div class="barbers-3d-stage" id="barbersStage">
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Clinton" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Clinton</div>
+          <div class="barber-role">Fondateur</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Allan" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Allan</div>
+          <div class="barber-role">Barbier</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Aziz" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Aziz</div>
+          <div class="barber-role">Barbier</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Junior" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Junior</div>
+          <div class="barber-role">Barbier</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Clélia" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Clélia</div>
+          <div class="barber-role">Coiffeuse</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Prisca" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Prisca</div>
+          <div class="barber-role">Coiffeuse</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Marcus" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Marcus</div>
+          <div class="barber-role">Barbier</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Léo" class="barber-card-img"/>
+        <div class="barber-card-body">
+          <div class="barber-name">Léo</div>
+          <div class="barber-role">Barbier</div>
+          <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn carousel-btn-next" aria-label="Suivant">
+      <i class="ph-duotone ph-caret-right"></i>
+    </button>
+
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+
+</section>
+
+<!-- ─────────── GALLERY ─────────── -->
+<section id="galerie">
+
+  <div class="section-head reveal">
+    <span class="eyebrow">Portfolio</span>
+    <h2 class="section-title shutter-title">Notre <span class="gold">Portfolio</span></h2>
+  </div>
+
+  <div class="galerie-grid">
+
+    <div class="galerie-item galerie-item-tall">
+      <img src="assets/image 1.jpg" alt="Coupe dégradée ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay">
+        <span class="galerie-overlay-label">Coupe &amp; Dégradé</span>
+      </div>
+    </div>
+
+    <div class="galerie-item">
+      <img src="assets/image 2.jpg" alt="Tondeuse nuque" class="galerie-img"/>
+      <div class="galerie-overlay">
+        <span class="galerie-overlay-label">Finition Nuque</span>
+      </div>
+    </div>
+
+    <div class="galerie-item">
+      <img src="assets/image 3.jpg" alt="Coupe afro ciseaux" class="galerie-img"/>
+      <div class="galerie-overlay">
+        <span class="galerie-overlay-label">Coupe Afro</span>
+      </div>
+    </div>
+
+    <div class="galerie-item">
+      <img src="assets/image 4.jpg" alt="Tondeuse précision" class="galerie-img"/>
+      <div class="galerie-overlay">
+        <span class="galerie-overlay-label">Précision</span>
+      </div>
+    </div>
+
+    <div class="galerie-item">
+      <img src="assets/image 5.jpg" alt="Design motif rasoir" class="galerie-img"/>
+      <div class="galerie-overlay">
+        <span class="galerie-overlay-label">Design &amp; Motif</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="galerie-cta reveal">
+    <p class="galerie-cta-text">Chaque coupe est une signature</p>
+    <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="btn-primary">
+      Réserver maintenant →
+    </a>
+  </div>
+
+</section>
+
+<!-- ─────────── CONTACT ─────────── -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Nous trouver</span>
+      <h2 class="shutter-title" style="margin-top:14px">Passez nous voir.</h2>
+      <p style="color:#bdb7c9;max-width:420px">Au cœur du Havre, à deux pas de la plage. Boisson offerte pendant que vous patientez.</p>
+
+      <div class="contact-info">
+        <div class="cinfo">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="lbl">Adresse</div>
+            <div class="val">147 Rue du Maréchal Joffre<br/>76600 Le Havre</div>
+          </div>
+        </div>
+        <div class="cinfo">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="lbl">Horaires</div>
+            <div class="val">Lundi – Samedi · 9h - 19h<br/><span style="color:#8b8595;font-size:.88rem">Dimanche · fermé</span></div>
+          </div>
+        </div>
+        <div class="cinfo">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="lbl">Réservation</div>
+            <div class="val">
+              Via Planity (en ligne)<br>
+              Ou par téléphone :<br>
+              <a href="tel:+33276323352" class="contact-phone-link">+33 2 76 32 33 52</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="lbl" style="font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#8b8595;margin-bottom:12px">Suivez-nous</div>
+          <div class="socials">
+            <a href="https://www.instagram.com/clintownlh?igsh=MTJzcm9zYTFpejB6Zw==" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <i class="ph-duotone ph-instagram-logo"></i>
+            </a>
+            <a href="https://www.tiktok.com/@clintownbarbe?_r=1&amp;_t=ZN-96DdUhFMR3" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+              <i class="ph-duotone ph-tiktok-logo"></i>
+            </a>
+            <a href="https://snapchat.com/t/vvCGwKhi" target="_blank" rel="noopener" class="social-link" aria-label="Snapchat">
+              <i class="ph-duotone ph-snapchat-logo"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d2">
+      <div class="map-container">
+        <iframe
+          src="https://maps.google.com/maps?q=147+Rue+du+Mar%C3%A9chal+Joffre+76600+Le+Havre&output=embed"
+          width="100%"
+          height="350"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ClinTown Barbershop - 147 Rue du Maréchal Joffre, Le Havre"
+        ></iframe>
+      </div>
+      <a
+        href="https://www.planity.com/clintown-lh-76600-le-havre"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary"
+        style="display:block;text-align:center;margin-top:1rem"
+      >
+        Réserver sur Planity →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── FOOTER ─────────── -->
+<footer class="footer">
+  <div class="footer-row">
+    <div>© 2025 Clintown Crawford Barbershop — Tous droits réservés</div>
+    <div style="display:flex;gap:22px"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#top">↑ Retour en haut</a></div>
+  </div>
+  <div class="footer-credit">Site créé par <a href="https://fidelys.pro" target="_blank" rel="noopener" class="footer-credit-link">Fidélys</a></div>
+</footer>
+
+<script>
+/* ─── loader ─── */
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hide'), 3500);
+});
+
+/* ─── cursor ─── */
+const dot = document.getElementById('cDot');
+const ring = document.getElementById('cRing');
+let mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my;
+window.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`});
+(function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.gal-item,.value,.barber,.pcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+});
+
+/* ─── nav scroll + mobile ─── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+// MENU HAMBURGER
+const hamburger = document.getElementById('navHamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('.mobile-nav-link, .mobile-menu-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+/* ─── transition blur ─── */
+(function(){
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9998;backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);transition:backdrop-filter .35s ease';
+  document.body.appendChild(overlay);
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.style.backdropFilter = 'blur(16px)';
+      overlay.style.webkitBackdropFilter = 'blur(16px)';
+      setTimeout(() => {
+        overlay.style.backdropFilter = 'blur(0px)';
+        overlay.style.webkitBackdropFilter = 'blur(0px)';
+      }, 650);
+    });
+  });
+})();
+
+/* ─── reveal on scroll ─── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ─── carousel barbiers 3D ─── */
+(function() {
+  const stage = document.getElementById('barbersStage');
+  const prevBtn = document.querySelector('.carousel-btn-prev');
+  const nextBtn = document.querySelector('.carousel-btn-next');
+  const dotsContainer = document.getElementById('carouselDots');
+  if (!stage) return;
+
+  const cards = Array.from(stage.querySelectorAll('.barber-card'));
+  const n = cards.length;
+  let current = Math.floor(n / 2);
+  let autoTimer;
+
+  function update() {
+    cards.forEach((card, i) => {
+      let offset = i - current;
+      let pos = ((offset % n) + n) % n;
+      if (pos > Math.floor(n / 2)) pos -= n;
+      const isCenter = pos === 0;
+      const isAdj = Math.abs(pos) === 1;
+      const visible = Math.abs(pos) <= 1;
+      card.style.transform = `translateX(${pos * 45}%) scale(${isCenter ? 1 : isAdj ? 0.85 : 0.7}) rotateY(${pos * -10}deg)`;
+      card.style.zIndex = isCenter ? 10 : isAdj ? 5 : 1;
+      card.style.opacity = isCenter ? 1 : isAdj ? 0.4 : 0;
+      card.style.filter = isCenter ? 'blur(0)' : 'blur(4px)';
+      card.style.visibility = visible ? 'visible' : 'hidden';
+      card.style.borderColor = isCenter ? 'rgba(201,168,76,.45)' : 'rgba(255,255,255,.1)';
+    });
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function goNext() { current = (current + 1) % n; update(); }
+  function goPrev() { current = (current - 1 + n) % n; update(); }
+
+  function startAuto() { autoTimer = setInterval(goNext, 4000); }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  for (let i = 0; i < n; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot';
+    dot.setAttribute('aria-label', 'Barbier ' + (i + 1));
+    dot.addEventListener('click', () => { current = i; update(); resetAuto(); });
+    dotsContainer.appendChild(dot);
+  }
+
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => { current = i; update(); resetAuto(); });
+  });
+
+  prevBtn.addEventListener('click', () => { goPrev(); resetAuto(); });
+  nextBtn.addEventListener('click', () => { goNext(); resetAuto(); });
+
+  let startX = 0;
+  stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; clearInterval(autoTimer); }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev();
+    startAuto();
+  });
+
+  update();
+  startAuto();
+})();
+
+/* ─── floating particles around brush (no-op if element absent) ─── */
+const partWrap = document.getElementById('particles');
+if (partWrap) {
+  for (let i = 0; i < 14; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (10 + Math.random() * 80) + '%';
+    p.style.top = (10 + Math.random() * 80) + '%';
+    p.style.opacity = (0.3 + Math.random() * 0.5).toFixed(2);
+    p.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
+    p.style.animationDuration = (4 + Math.random() * 5).toFixed(2) + 's';
+    p.style.transform = `scale(${(0.6 + Math.random() * 1.2).toFixed(2)})`;
+    partWrap.appendChild(p);
+  }
+}
+// inject keyframes for floating particles
+const styleEl = document.createElement('style');
+styleEl.textContent = `@keyframes float { 0%,100% { transform: translateY(0) scale(1); opacity: .4 } 50% { transform: translateY(-30px) scale(1.2); opacity: 1 } }`;
+document.head.appendChild(styleEl);
+
+/* ─── shutter text effect ─── */
+function initShutterText() {
+  document.querySelectorAll('.shutter-title').forEach(el => {
+    let delay = 0;
+    function wrapChars(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const chars = node.textContent.split('');
+        const frag = document.createDocumentFragment();
+        chars.forEach(char => {
+          if (char === ' ' || char === '\n') {
+            const sp = document.createElement('span');
+            sp.innerHTML = '&nbsp;';
+            sp.style.display = 'inline-block';
+            frag.appendChild(sp);
+          } else {
+            const wrap = document.createElement('span');
+            wrap.className = 'shutter-char';
+            wrap.style.setProperty('--delay', delay);
+            [
+              ['shutter-slice-top','polygon(0 0,100% 0,100% 33%,0 33%)'],
+              ['shutter-slice-mid','polygon(0 33%,100% 33%,100% 66%,0 66%)'],
+              ['shutter-slice-bot','polygon(0 66%,100% 66%,100% 100%,0 100%)']
+            ].forEach(([cls, clip]) => {
+              const sl = document.createElement('span');
+              sl.className = cls;
+              sl.style.clipPath = clip;
+              sl.setAttribute('aria-hidden','true');
+              sl.textContent = char;
+              wrap.appendChild(sl);
+            });
+            const main = document.createElement('span');
+            main.className = 'shutter-main';
+            main.textContent = char;
+            wrap.appendChild(main);
+            frag.appendChild(wrap);
+          }
+          delay++;
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        Array.from(node.childNodes).forEach(wrapChars);
+      }
+    }
+    Array.from(el.childNodes).forEach(wrapChars);
+    el.classList.add('shutter-ready');
+  });
+}
+
+function observeShutterTitles() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('shutter-animate'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.shutter-title').forEach(el => obs.observe(el));
+}
+
+setTimeout(() => {
+  initShutterText();
+  observeShutterTitles();
+  const heroTitle = document.querySelector('.hero-title');
+  if (heroTitle) setTimeout(() => heroTitle.classList.add('shutter-animate'), 1200);
+}, 2600);
+</script>
+</body>
+</html>
