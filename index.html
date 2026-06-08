@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Clintown Crawford Barbershop — Le Havre</title>
+<link rel="icon" type="image/png" href="assets/logo sans arrière plan.png">
+<link rel="apple-touch-icon" href="assets/logo sans arrière plan.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -276,18 +278,18 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
 
 /* ───────────────────────── galerie ───────────────────────── */
 #galerie{padding:8rem 4rem;background:#0d0d0f;position:relative}
-.galerie-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:320px 320px;gap:6px;max-width:1200px;margin:0 auto 3rem}
+.galerie-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:320px 320px 320px;gap:6px;max-width:1200px;margin:0 auto 3rem}
 .galerie-item-tall{grid-row:span 2}
 .galerie-item{position:relative;overflow:hidden;cursor:none;background:var(--bg);border-radius:12px}
-.galerie-img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .7s ease;filter:brightness(.88) saturate(.95);border-radius:12px}
+.galerie-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .7s ease;filter:brightness(.9) saturate(.95)}
 .galerie-item:hover .galerie-img{transform:scale(1.06);filter:brightness(.6) saturate(1.1)}
 .galerie-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(91,14,166,.7) 100%);display:flex;align-items:flex-end;padding:1.5rem;opacity:0;transition:opacity .4s ease}
 .galerie-item:hover .galerie-overlay{opacity:1}
 .galerie-overlay-label{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--white)}
 .galerie-cta{display:flex;flex-direction:column;align-items:center;gap:1.2rem;margin-top:3rem;text-align:center}
 .galerie-cta-text{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-@media(max-width:900px){#galerie{padding:4rem 1.5rem}.galerie-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.galerie-item-tall{grid-row:span 1;grid-column:span 2}}
-@media(max-width:480px){.galerie-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,220px)}.galerie-item-tall{grid-column:span 1}}
+@media(max-width:900px){#galerie{padding:4rem 1.5rem}.galerie-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,220px)}.galerie-item-tall{grid-row:span 1}}
+@media(max-width:480px){.galerie-grid{grid-template-columns:1fr;grid-template-rows:repeat(7,280px)}}
 
 /* ───────────────────────── contact ───────────────────────── */
 .contact{padding:120px clamp(20px,4vw,56px) 80px;background:linear-gradient(180deg,#0d0d0d 0%,#100918 100%);position:relative}
@@ -473,10 +475,9 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
     <div class="ambiance-media">
       <div class="ambiance-img-main">
         <img
-          src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Homme confiant après sa coupe"
+          src="assets/photo2.jpg"
+          alt="ClinTown Barbershop ambiance"
           class="ambiance-photo ambiance-photo-back"
-          crossorigin="anonymous"
         />
         <img
           src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -635,7 +636,7 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
     <div class="barbers-3d-stage" id="barbersStage">
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Clinton" class="barber-card-img"/>
+        <img src="assets/coiffeurs/Clinton.png" alt="Clinton" class="barber-card-img"/>
         <div class="barber-card-body">
           <div class="barber-name">Clinton</div>
           <div class="barber-role">Fondateur</div>
@@ -644,7 +645,7 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
       </div>
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Allan" class="barber-card-img"/>
+        <img src="assets/coiffeurs/Allan.jpg" alt="Allan" class="barber-card-img"/>
         <div class="barber-card-body">
           <div class="barber-name">Allan</div>
           <div class="barber-role">Barbier</div>
@@ -653,7 +654,7 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
       </div>
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Aziz" class="barber-card-img"/>
+        <img src="assets/coiffeurs/AZIZ.jpg" alt="Aziz" class="barber-card-img"/>
         <div class="barber-card-body">
           <div class="barber-name">Aziz</div>
           <div class="barber-role">Barbier</div>
@@ -662,7 +663,7 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
       </div>
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Junior" class="barber-card-img"/>
+        <img src="assets/coiffeurs/Junior.jpg" alt="Junior" class="barber-card-img"/>
         <div class="barber-card-body">
           <div class="barber-name">Junior</div>
           <div class="barber-role">Barbier</div>
@@ -671,7 +672,7 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
       </div>
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Clélia" class="barber-card-img"/>
+        <img src="assets/coiffeurs/Clélia.jpg" alt="Clélia" class="barber-card-img"/>
         <div class="barber-card-body">
           <div class="barber-name">Clélia</div>
           <div class="barber-role">Coiffeuse</div>
@@ -680,7 +681,7 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
       </div>
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Prisca" class="barber-card-img"/>
+        <img src="assets/coiffeurs/Prisca.jpg" alt="Prisca" class="barber-card-img"/>
         <div class="barber-card-body">
           <div class="barber-name">Prisca</div>
           <div class="barber-role">Coiffeuse</div>
@@ -689,9 +690,9 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
       </div>
 
       <div class="barber-card">
-        <img src="https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop" alt="Marcus" class="barber-card-img"/>
+        <img src="assets/coiffeurs/Dylan.jpg" alt="Dylan" class="barber-card-img"/>
         <div class="barber-card-body">
-          <div class="barber-name">Marcus</div>
+          <div class="barber-name">Dylan</div>
           <div class="barber-role">Barbier</div>
           <a href="https://www.planity.com/clintown-lh-76600-le-havre" target="_blank" rel="noopener" class="barber-rdv-btn">Réserver</a>
         </div>
@@ -728,39 +729,44 @@ h3{font-size:clamp(1rem,1.6vw,1.4rem)}
 
   <div class="galerie-grid">
 
+    <!-- Col 1 — tall (rows 1+2) -->
     <div class="galerie-item galerie-item-tall">
-      <img src="assets/image 1.jpg" alt="Coupe dégradée ClinTown" class="galerie-img"/>
-      <div class="galerie-overlay">
-        <span class="galerie-overlay-label">Coupe &amp; Dégradé</span>
-      </div>
+      <img src="assets/galerie/IMAGE 0.jpg" alt="Coupe dégradée ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Dégradé Premium</span></div>
+    </div>
+
+    <!-- Col 2 — row 1 -->
+    <div class="galerie-item">
+      <img src="assets/galerie/IMAGE 1.jpg" alt="Coupe ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Coupe &amp; Style</span></div>
+    </div>
+
+    <!-- Col 3 — tall (rows 1+2) -->
+    <div class="galerie-item galerie-item-tall">
+      <img src="assets/galerie/IMAGE 3.jpg" alt="Finition ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Finition Précise</span></div>
+    </div>
+
+    <!-- Col 2 — row 2 -->
+    <div class="galerie-item">
+      <img src="assets/galerie/IMAGE 4.jpg" alt="Tondeuse ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Art Tondeuse</span></div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="galerie-item">
+      <img src="assets/galerie/IMAGE 5.jpg" alt="Coupe afro ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Coupe Afro</span></div>
     </div>
 
     <div class="galerie-item">
-      <img src="assets/image 2.jpg" alt="Tondeuse nuque" class="galerie-img"/>
-      <div class="galerie-overlay">
-        <span class="galerie-overlay-label">Finition Nuque</span>
-      </div>
+      <img src="assets/galerie/IMAGE 6.jpg" alt="Design motif ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Design &amp; Motif</span></div>
     </div>
 
     <div class="galerie-item">
-      <img src="assets/image 3.jpg" alt="Coupe afro ciseaux" class="galerie-img"/>
-      <div class="galerie-overlay">
-        <span class="galerie-overlay-label">Coupe Afro</span>
-      </div>
-    </div>
-
-    <div class="galerie-item">
-      <img src="assets/image 4.jpg" alt="Tondeuse précision" class="galerie-img"/>
-      <div class="galerie-overlay">
-        <span class="galerie-overlay-label">Précision</span>
-      </div>
-    </div>
-
-    <div class="galerie-item">
-      <img src="assets/image 5.jpg" alt="Design motif rasoir" class="galerie-img"/>
-      <div class="galerie-overlay">
-        <span class="galerie-overlay-label">Design &amp; Motif</span>
-      </div>
+      <img src="assets/galerie/IMAGE 7.jpg" alt="Rasage ClinTown" class="galerie-img"/>
+      <div class="galerie-overlay"><span class="galerie-overlay-label">Rasage Net</span></div>
     </div>
 
   </div>
